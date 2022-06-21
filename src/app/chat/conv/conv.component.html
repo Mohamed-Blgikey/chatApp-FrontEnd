@@ -1,0 +1,20 @@
+<div>
+<h3 class="text-center w-50 m-auto" style="border: 1px solid #000 ; border-radius: 10px;">Chat with {{user?.fullName}}</h3>
+
+<div *ngFor="let message of con">
+  <div>From {{message.sender.fullName}} to  {{message.reciver.fullName}}<br> {{message.content}}</div>
+</div>
+
+
+<div class="fixed-bottom w-50 ms-auto pe-5">
+  <form [formGroup]="SendForm" (ngSubmit)="Send(SendForm)">
+  <div class="p-2" style="display: flex; justify-content: space-between;">
+
+      <input formControlName="content" placeholder="Type ..." type="text" class="form-control">
+      <div class="px-2">
+        <button [disabled]="SendForm.invalid" class="btn btn-success">Send</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>

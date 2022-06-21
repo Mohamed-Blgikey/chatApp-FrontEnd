@@ -1,0 +1,14 @@
+<h2 class="text-center">Wellcom {{userName}}</h2>
+<div class="row">
+  <div class="col-sm-4">
+    <div *ngFor="let user of users">
+      <div class="px-5 py-2 text-center">
+      <button (click)="Caht(user)" class="btn btn-outline-success">Start Chat With {{user.fullName}}</button>
+
+      </div>
+      </div>
+  </div>
+  <div class="col-sm-8 bg-light py-3">
+    <app-conv [user]="user"></app-conv>
+  </div>
+</div>
