@@ -21,7 +21,12 @@ export class HttpService {
 
 
   Post(endPoint:string, body: any = null):Observable<any>{
-    return this.http.post(`${this.baseUrl}${endPoint}`,body);
+    let token = localStorage.getItem('userToken')
+    let header = {
+      headers: new HttpHeaders()
+      .set('Authorization',  `Bearer ${token}`)
+    }
+    return this.http.post(`${this.baseUrl}${endPoint}`,body,header);
   }
 
   Delete(endPoint:string,body:any = null):Observable<any>{

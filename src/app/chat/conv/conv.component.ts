@@ -31,7 +31,7 @@ export class ConvComponent implements OnInit ,OnChanges{
       this.SendForm.controls['reciverId'].setValue(this.user.id);
       this.http.Get(`/Users/GetConversation/${this.user?.id}`).subscribe(res=>{
         this.con = res
-        console.log(this.con);
+        // console.log(this.con);
       })
 
     }
@@ -42,11 +42,11 @@ export class ConvComponent implements OnInit ,OnChanges{
   }
 
   Send(SendFrom:FormGroup){
-    console.log(SendFrom.value);
-    // this.http.Post("/Users/SendMessage",SendFrom.value).subscribe(res=>{
-    //   console.log(res);
-    //   SendFrom.controls['content'].setValue('');
-    // })
+    // console.log(SendFrom.value);
+    this.http.Post("/Users/SendMessage",SendFrom.value).subscribe(res=>{
+      // console.log(res);
+      SendFrom.controls['content'].setValue('');
+    })
   }
 
 }
