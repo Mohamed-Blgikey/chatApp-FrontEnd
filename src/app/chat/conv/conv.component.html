@@ -1,8 +1,10 @@
 <div>
 <h3 class="text-center w-50 m-auto" style="border: 1px solid #000 ; border-radius: 10px;">Chat with {{user?.fullName}}</h3>
 
-<div *ngFor="let message of con">
-  <div style="word-wrap: break-word;" [ngClass]="message.senderId == user.id?'bg-danger text-white w-50 rounded mt-1 p-1 me-auto':'bg-danger text-white w-50 rounded mt-1 p-1 ms-auto'">{{message.content}}</div>
+<div style="height: 400px; overflow-y: auto;" #panel>
+  <div *ngFor="let message of con">
+    <div style="word-wrap: break-word;" [ngClass]="message.senderId == user.id?'bg-danger text-white w-50 rounded mt-1 p-1 me-auto':'bg-danger text-white w-50 rounded mt-1 p-1 ms-auto'">{{message.content}}</div>
+  </div>
 </div>
 
 
